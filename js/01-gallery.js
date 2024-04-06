@@ -12,10 +12,10 @@ function onImage(event) {
 
 const items = [];
 
-galleryItems.map(({description, original, preview }) => {
-	document.createElement()
+galleryItems.map(({description, original, preview}) => {
+	const element = `<li><img class="img" src="${preview}" alt="${description} data-src="${original}"></li>`;
+	items.push(element)
 })
-
-
-
+galleryList.insertAdjacentHTML('beforeend', ...items)
+console.log(galleryList)
 
