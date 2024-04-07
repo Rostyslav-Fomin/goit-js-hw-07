@@ -1,9 +1,6 @@
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
-
-
 const galleryList = document.querySelector('.gallery');
-
 galleryList.addEventListener('click', onOriginalImage);
 
 function onOriginalImage({target}) {
