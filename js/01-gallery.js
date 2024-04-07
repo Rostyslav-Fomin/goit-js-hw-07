@@ -4,14 +4,12 @@ import { galleryItems } from './gallery-items.js';
 
 const galleryList = document.querySelector('.gallery');
 
-galleryList.addEventListener('click', onImage);
+galleryList.addEventListener('click', onOriginalImage);
 
-function onImage({target}) {
+function onOriginalImage({target}) {
 	if (!target.classList.contains('gallery__image')) {
 		return
-	} const instance = basicLightbox.create(document.querySelector('.gallery__image'));
-	console.log(instance)
-	target.src = target.dataset.src
+	} const instance = basicLightbox.create(`<img src="${target.dataset.src}" alt="${target.alt}">`);
 	instance.show()
 }
 
