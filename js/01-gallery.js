@@ -3,7 +3,7 @@ import { galleryItems } from './gallery-items.js';
 const galleryList = document.querySelector('.gallery');
 galleryList.addEventListener('click', onOriginalImage);
 
-let items = galleryItems.map(({ description, original, preview }) => `<li class="gallery__item"><a class="gallery__link" href="${original}"><img class="gallery__image" src="${preview}" alt="${description}" data-source="${original}"></a></li>`).join('');
+const items = galleryItems.map(({ description, original, preview }) => `<li class="gallery__item"><a class="gallery__link" href="${original}"><img class="gallery__image" src="${preview}" alt="${description}" data-source="${original}"></a></li>`).join('');
 galleryList.insertAdjacentHTML('beforeend', items)
 
 function onOriginalImage(event) {
