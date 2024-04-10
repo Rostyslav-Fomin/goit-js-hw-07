@@ -3,17 +3,22 @@ import { galleryItems } from './gallery-items.js';
 const galleryList = document.querySelector('.gallery');
 galleryList.addEventListener('click', onOriginalImage);
 
-function onOriginalImage({target}) {
+let items = galleryItems.map(({ description, original, preview }) => `<li class="gallery__item"><a class="gallery__link" href="${original}"><img class="gallery__image" src="${preview}" alt="${description}" data-source="${original}"></a></li>`).join('');
+galleryList.insertAdjacentHTML('beforeend', items)
+
+function onOriginalImage(event) {
+	const target = event.target;
+	event.preventDefault()
 	if (!target.classList.contains('gallery__image')) {
 		return
-	} const instance = basicLightbox.create(`<img src="${target.dataset.src}" alt="${target.alt}">`);
-	instance.show()
+	} 
+	const instance = basicLightbox.create(`<img src="${target.dataset.source}" alt="${target.alt}">`);
+	instance.show()	
+	document.addEventListener('keydown', onKey)
+	function onKey(event) {
+	if (event.code === 'Escape') {
+		instance.close()
+	}
+	}
 }
 
-let items = '';
-
-galleryItems.map(({description, original, preview}) => {
-	const element = `<li class="gallery__item"><img class="gallery__image" src="${preview}" alt="${description}" data-src="${original}"></li>`;
-	items = items + element;
-})
-galleryList.insertAdjacentHTML('beforeend', items)
