@@ -8,5 +8,7 @@ galleryList.insertAdjacentHTML('beforeend', items);
 
 var lightbox = new SimpleLightbox('.gallery a', {});
 lightbox.defaultOptions.captionsData = "alt";
+lightbox.defaultOptions.captionsDelay = 250;
+
 
 
