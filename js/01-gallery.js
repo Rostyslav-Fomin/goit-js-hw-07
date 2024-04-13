@@ -30,7 +30,6 @@ function onOriginalImage(event) {
     }
   );
   function onEscapeKey(e) {
-    console.log(e.key);
     if (e.key === "Escape") {
       instance.close();
     }
