@@ -14,5 +14,5 @@ galleryList.insertAdjacentHTML("beforeend", items);
 var lightbox = new SimpleLightbox(".gallery a", {
   captionsData: "alt",
   captionPosition: "bottom",
-  fadeSpeed: 250,
+  captionDelay: 250,
 });
